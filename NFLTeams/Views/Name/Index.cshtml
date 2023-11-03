@@ -1,0 +1,44 @@
+﻿@model TeamsViewModel
+@{
+    ViewData["Title"] = "Change Name";
+}
+
+<div class="text-center">
+    <h2>Change user Name</h2>
+    <form asp-action="Change" method="post">
+        <a asp-action="UserName" placeholder= "Type name here" class="mb-3" /><br/>
+        <button type="submit" class="btn btn-primary">
+            Change Name
+        </button>   
+        <a asp-action="Index" asp-asp-controller="Home" class="btn btn-primary"
+           asp-route-activeConf="@Model.ActiveConf"
+           asp-route-activeDiv="@Model.ActiveDiv">
+            Back to Home Page
+        </a>
+    </form>
+    <br />
+</div>
+
+
+<div class="row">
+    <div class="col-8 offset-2">
+        <ul class="list-group">
+            @foreach (Team team in Model.Teams)
+            {
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="~/images/@team.LogoImage" alt="" />
+                        </div>
+                        <div class="col-sm-4">
+                            @team.Name
+                        </div>
+                        <div class="col-sm-4">
+                            @team.Conference.Name @team.Division.Name
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
