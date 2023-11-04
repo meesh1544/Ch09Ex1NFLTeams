@@ -19,7 +19,7 @@ namespace NFLTeams.Controllers
             };
             return View(model);
         }
-    }
+    
 
     [HttpPost]
     public RedirectToActionResult Change(TeamsViewModel model)
@@ -33,3 +33,4 @@ namespace NFLTeams.Controllers
         });
        }
     }
+}
